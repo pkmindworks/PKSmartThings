@@ -21,6 +21,7 @@ metadata {
 		input "ipAddress", "string", title: "IP Address", description: "Enter the IP address of the computer", required: true, displayDuringSetup: true
 		input "HEXPort", "string", title: "HEXPort", description: "Enter the Port for status in HEX", required: true, displayDuringSetup: true
 		input "Port", "string", title: "Port", description: "Enter the Port for status", required: true, displayDuringSetup: true
+		input "PwAuth", "string", title: "Password", description: "Enter the Password", required: true, displayDuringSetup: true
 	}
 
 	simulator {
@@ -81,12 +82,12 @@ def machineGET() {
 def machineSleepGET() {
 	sendHubCommand(new physicalgraph.device.HubAction([
 		method: "GET",
-		path: "/shutdown?auth=Shutd0wN",
+		path: "/shutdown?auth={PwAuth}",
 		headers: [
 		HOST: "${ipAddress}:${Port}",
 	]]))
 
-	log.debug "Sent HTTP SLEEP request to PC - http://${ipAddress}:${Port}/shutdown?auth=Shutd0wN"
+	log.debug "Sent HTTP SLEEP request to PC - http://${ipAddress}:${Port}/shutdown?auth={PwAuth}"
 }
 
 def sendWOL() {
@@ -187,4 +188,4 @@ private String convertPortToHex(port) {
 // c0a80010:7e90 - 192.168.0.16:32400
 // c0a80010:1f40 - 192.168.0.16:8000
 // C0A85634:0050 - 192.168.86.52:80
-// change the dni in My Devices for this device if IP address changs
+// change the dni in My Devices for this device if IP address changes
