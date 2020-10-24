@@ -17,7 +17,7 @@
  *	Date: 2016-02-01 v1.0 Initial Release
  */
 definition(
-    name: "AsusWRT Wifi Presence",
+    name: "AsusWRT-Merlin Wifi Presence",
     namespace: "fuzzysb",
     author: "Stuart Buchanan",
     description: "Triggers Wifi Presence Status when HTTP GET Request is recieved",
