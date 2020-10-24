@@ -18,7 +18,7 @@
  */
 definition(
     name: "AsusWRT-Merlin Wifi Presence",
-    namespace: "fuzzysb",
+    namespace: "pkmindworks",
     author: "Stuart Buchanan",
     description: "Triggers Wifi Presence Status when HTTP GET Request is recieved",
     category: "My Apps",
