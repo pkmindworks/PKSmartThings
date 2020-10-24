@@ -23,7 +23,7 @@ definition(
     description: "Triggers Wifi Presence Status when HTTP GET Request is recieved",
     category: "My Apps",
     iconUrl: "http://icons.iconarchive.com/icons/icons8/windows-8/256/Network-Wifi-icon.png",
-    iconX2Url: "http://icons.iconarchive.com/icons/icons8/windows-8/256/Network-Wifi-icon.png")
+    iconX2Url: "https://www.asus.com/media/img/2017/images/n-logo-asus.svg")
 
 
 preferences {
