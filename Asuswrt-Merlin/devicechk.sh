@@ -82,11 +82,16 @@ for MACCur in ${MACAddrLst}; do
 	if [ "${Wired:$(($i-1)):1}" = "1" ]; then
 	    MACCur=${MACCur}" R"
 	fi
-    sp2="`echo $Values|cut -d' ' -f${i}`"        ##Change to sp2=off if you remove TrueVal
     case "$macaddress" in
         *"${MACCur}"*)
-        sp2="`echo $TrueVal|cut -d' ' -f${i}`"   ##Change to sp2=on if you remove TrueVal
-        ;;
+            sp2="`echo $TrueVal|cut -d' ' -f${i}`"   ##Change to sp2=on if you remove TrueVal
+            ;;
+        *"B2:BE:76${MACCur:8}"*).                    ##Added to accound for devices attached to another AP
+            sp2="`echo $TrueVal|cut -d' ' -f${i}`"   ##Change to sp2=on if you remove TrueVal
+            ;;
+        *)
+            sp2="`echo $Values|cut -d' ' -f${i}`"    ##Change to sp2=off if you remove TrueVal
+            ;;
     esac
     Values="${sp1} ${sp2} ${sp3}"
     i=$(($i+1))
